@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="well">
+        <h2>Produtos</h2>
+        <mensagem></mensagem>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titulo</th>
+                        <th>Preco</th>
+                        <th>Descrição</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let produto of produtos">
+                    <td>{{produto._id}}</td>
+                    <td>{{produto._nome}}</td>
+                    <td>{{produto._preco}}</td>
+                    <td>{{produto._descricao}}</td>
+                    <td>
+                        <button type="button" (click)="comprar(produto)" class="btn btn-primary">Comprar</button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</div>

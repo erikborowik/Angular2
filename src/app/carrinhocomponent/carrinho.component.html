@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="well">
+        <h2>Produtos no carrinho</h2>
+        <mensagem></mensagem>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let item of itensCarrinho">
+                    <td>{{item._nome}}</td>
+                    <td>{{item._preco}}</td>
+                    <td>
+                        <button type="button" (click)="remover(item)" class="btn btn-primary">Remover</button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</div>
