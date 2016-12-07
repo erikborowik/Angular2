@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Produto } from '../models/produto.model';
 import { CarrinhoService } from '../services/carrinho.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,14 +11,16 @@ export class CarrinhoComponent implements OnInit {
 
     private itensCarrinho: Array<Produto>;
 
-    constructor(private _carrinhoService: CarrinhoService) {
+    constructor(private _carrinhoService: CarrinhoService, private _title : Title) {
         this.itensCarrinho = _carrinhoService.getProdutosCarrinho();
     }
 
     public remover(produto: Produto) {
-        console.log(produto);
         this._carrinhoService.removeProduto(produto);
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this._title.setTitle("Carrinho de compras");
+
+    }
 }

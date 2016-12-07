@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { CarrinhoService } from '../services/carrinho.service';
 import { Produto } from '../models/produto.model';
 import { ProdutoService } from '../services/produto.service';
@@ -9,21 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutoListaComponent implements OnInit {
 
-    produtos : Array<Produto>;
+    produtos: Array<Produto>;
     q = "";
 
-     constructor(private _produtoService : ProdutoService, private _carrinhoService : CarrinhoService) { 
+    constructor(private _produtoService: ProdutoService,
+        private _carrinhoService: CarrinhoService,
+        private _title: Title) {
         this.produtos = _produtoService.getProdutos();
-        console.log(this.produtos);
     }
 
-     public onItemAdded(item: any): any {
+    public onItemAdded(item: any): any {
         this.produtos = this._produtoService.getProdutos();
     }
 
-    public comprar(produto : Produto){
+    public comprar(produto: Produto) {
         this._carrinhoService.addProduto(produto);
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this._title.setTitle("Lista de produtos");
+    }
 }

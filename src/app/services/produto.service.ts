@@ -10,7 +10,6 @@ export class ProdutoService {
     }
 
     public adicionarProduto(produto : Produto): any {
-        console.log("add produto");
         let id: number = 1;
         id = parseInt(localStorage.getItem("id")) || 1;
 

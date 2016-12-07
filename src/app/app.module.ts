@@ -1,3 +1,6 @@
+import { AuthGuard } from './shared/auth.guard';
+import { AuthService } from './services/auth.service';
+import { HighlightDirective } from './directives/directive';
 import { CarrinhoMenuComponent } from './carrinhocomponent/carrinho_menu.component';
 import { MensagemComponent } from './mensagemComponent/mensagem.component';
 import { routing } from './app.route';
@@ -10,10 +13,11 @@ import { ProdutoListaComponent } from './produtocomponent/produto-lista.componen
 import { ProdutoCadastroComponent } from './produtocomponent/produto-cadastro.component';
 import { LoginComponent } from './logincomponent/login.component';
 import { CarrinhoComponent } from './carrinhocomponent/carrinho.component';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -26,7 +30,8 @@ import { AppComponent } from './app.component';
     ProdutoListaComponent,
     FiltroLetraPipe,
     MensagemComponent,
-    CarrinhoMenuComponent
+    CarrinhoMenuComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,9 @@ import { AppComponent } from './app.component';
     MessageService, 
     ProdutoService,
     SessionService,
-    
+    AuthService,
+    AuthGuard,
+    Title,
     ],
   bootstrap: [AppComponent]
 })

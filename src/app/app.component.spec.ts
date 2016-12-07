@@ -15,6 +15,7 @@ describe('AppComponent', () => {
   it('should create the app', async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
+    //Valida só se o componente foi criado com sucesso, sem erro de compilação
     expect(app).toBeTruthy();
   }));
 

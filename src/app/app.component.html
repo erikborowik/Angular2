@@ -1,9 +1,9 @@
 <div class="container">
 
-  <div>
+  <span class="myHighlight2" [background]="'red'">
     MSG DE BEM VINDO
     
-  </div>
+  </span>
 
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -24,19 +24,32 @@
         <ul class="nav navbar-nav">
 
           <!--routerLink="/..." Cria o link para a rota -->
-          <li><a href="#" routerLink="/produtos">Produtos</a></li>
-          <li><a href="#" routerLink="/produto_cadastro">Cadastro de Produto </a></li>
+          <li><a *ngIf="isAuthenticated()" href="#" routerLink="/produtos">Produtos</a></li>
+          <li><a *ngIf="isAuthenticated()" href="#" routerLink="/produto_cadastro">Cadastro de Produto </a></li>
           <li><a href="#" routerLink="/login">Login </a></li>
         </ul>
 
-         <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
           <li>
             <a href="#" routerLink="/carrinho">
-                <carrinhomenu></carrinhomenu>
+              <carrinhomenu></carrinhomenu>
             </a>
           </li>
+          <li>
+            <button class="btn btn-default" (click)="logOut()">
+              <i class="glyphicon glyphicon-log-out"></i>
+              Sair</button>
+          </li>
         </ul>
-
+<!-- 
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <button class="btn btn-default" (click)="logOut()">
+              <i class="glyphicon glyphicon-log-out"></i>
+              Sair</button>
+          </li>
+        </ul>
+-->
       </div>
       <!-- /.navbar-collapse -->
     </div>

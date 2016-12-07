@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Produto } from '../models/produto.model';
 import { ProdutoService } from '../services/produto.service';
 import { Component, OnInit } from '@angular/core';
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: 'produto-cadastro.component.html'
 })
 export class ProdutoCadastroComponent implements OnInit {
-    constructor(private _produtoService : ProdutoService) { 
-        
+    constructor(private _produtoService: ProdutoService, private title : Title) {
+
     }
 
     adicionarProduto(titulo: string, preco: number, desc: string, imagem: string) {
@@ -16,5 +17,7 @@ export class ProdutoCadastroComponent implements OnInit {
         this._produtoService.adicionarProduto(produto);
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.title.setTitle("Cadastro de produto");
+    }
 }

@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { CarrinhoService } from '../services/carrinho.service';
 import { ProdutoService } from '../services/produto.service';
 import { Component, OnInit, Input } from '@angular/core';
@@ -12,7 +13,8 @@ export class CarrinhoMenuComponent implements OnInit {
 
     constructor(
         private _produtoService: ProdutoService,
-        private _carrinhoService: CarrinhoService
+        private _carrinhoService: CarrinhoService,
+        private title : Title
     ) {
         _carrinhoService.itemAdded$.subscribe(() => this.aumentaUm());
         _carrinhoService.itemRemoved$.subscribe(() => this.diminuiUm());
@@ -20,18 +22,16 @@ export class CarrinhoMenuComponent implements OnInit {
     }
 
     public diminuiUm() {
-        console.log("diminuiUm");
         let cont = this._carrinhoService.getProdutosCarrinho().length;
-        console.log("diminuiUm" + cont);
         this.contador = cont;
     }
 
     public aumentaUm() {
-        console.log("diminuiUm");
         let cont = this._carrinhoService.getProdutosCarrinho().length;
-        console.log("aumentaUm" + cont);
         this.contador = cont;
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.title.setTitle("Carrinho de compras");
+    }
 }
